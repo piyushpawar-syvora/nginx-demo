@@ -25,7 +25,7 @@ spec:
               key: ENV
         volumeMounts:
         - name: first-argocd-json-config
-          mountPath: /app/config.json
+          mountPath: /
           subPath: config.json
       volumes:
       - name: first-argocd-json-config

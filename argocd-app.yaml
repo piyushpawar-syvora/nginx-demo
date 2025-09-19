@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: first-argocd-demo-app
+  name: argocd-demo-app
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/piyushpawar-syvora/PracticeRepo3.git
+    repoURL: https://github.com/piyushpawar-syvora/nginx-demo.git
     targetRevision: HEAD
     path: development
 
