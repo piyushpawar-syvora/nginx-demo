@@ -9,7 +9,6 @@ spec:
   source:
     repoURL: https://github.com/piyushpawar-syvora/nginx-demo.git
     targetRevision: HEAD
-    path: 
 
   destination: 
     server: https://kubernetes.default.svc
