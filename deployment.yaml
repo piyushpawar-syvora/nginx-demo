@@ -23,11 +23,6 @@ spec:
             configMapKeyRef:
               name: first-argocd-json-config
               key: ENV
-        - name: DB_PASS
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: DB_PASS
         volumeMounts:
         - name: first-argocd-json-config
           mountPath: /app/config.json
@@ -35,4 +30,4 @@ spec:
       volumes:
       - name: first-argocd-json-config
         configMap:
-          name: json-config
+          name: first-argocd-json-config
