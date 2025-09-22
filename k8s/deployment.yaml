@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-argocd-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ENV
+          valueFrom:
+            configMapKeyRef:
+              name: first-argocd-json-config
+              key: ENV
+        volumeMounts:
+        - name: first-argocd-json-config
+          mountPath: /
+          subPath: config.json
+      volumes:
+      - name: first-argocd-json-config
+        configMap:
+          name: first-argocd-json-config
